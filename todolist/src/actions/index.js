@@ -1,12 +1,7 @@
-export function increment() {
+export function addTodo(text) {
     return ({
-        type: 'INCREMENT'
+        type: 'ADD_TODO',
+        text: text
         
-    })
-}
-
-export function decrement() {
-    return ({
-        type: 'DECREMENT'
     })
 }
