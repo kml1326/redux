@@ -9,11 +9,11 @@ class App extends Component {
         <h1 className='main-heading'>Medium Clone</h1>
         <div className='all-optionBtn-wrapper'>
           <div className='optionBtn-wrapper'>
-           <p>New User</p>
+          <p>Have an Account</p>
             <Link to='/login' className='optionBtn'> Login </Link>
           </div>
           <div className='optionBtn-wrapper'>
-            <p>Have an Account</p>
+            <p>New User</p>
             <Link to='/signup' className='optionBtn'> Signup </Link>
           </div>
         </div>

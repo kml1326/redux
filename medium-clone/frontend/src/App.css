@@ -40,6 +40,9 @@
 .right {
 	float: right;
 }
+.center {
+	text-align: center;
+}
 .signup {
 	border-right: 3px solid rgb(170, 21, 170);
 }
@@ -95,5 +98,15 @@ input {
 	height: 100vh;
 	width: 50%;
 }
-
+.article-body {
+	height: 100px;
+}
+.posts-wrapper {
+	width: 70%;
+	margin: 0 auto;
+}
+.post-wrapper {
+	margin: 20px 0;
+	border-bottom: 2px solid rgb(196, 186, 186);
+}
  

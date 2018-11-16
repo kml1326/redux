@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Signup extends Component {
 
-	state = {
-		username : '',
-		email : '',
-		password : ''
+	constructor(props) {
+		super(props);
+		this.state = {
+			username : '',
+			email : '',
+			password : ''
+		}
 	}
+	
 
 	handleClick = () => {
 		let data = this.state;
@@ -26,9 +32,10 @@ class Signup extends Component {
 		.then(data => {
 			if(data.username) {
 				alert('signup successful')
+				this.props.history.push('/login');				
 			} else {
 				
-				alert('Already Exist email or userName')
+				alert('Already Exist email or userName');
 			}
 		})
 	}
@@ -55,7 +62,7 @@ class Signup extends Component {
 				<div className="signup left">
 				<p className="header">Sign up</p>
 				<input type="email" name="email" 
-					placeholder="Mobile number or Email"
+					placeholder="Email"
 					onChange={this.handleChange}
 					value={this.state.email}
 				/>
@@ -70,13 +77,17 @@ class Signup extends Component {
 					value={this.state.password}
 				/>
 				<button className="btn" onClick={this.handleClick}>Sign up</button>
+				<p>Have an account  <Link to="/login">go to login </Link></p>
 				</div>
-				<div className='right poster'>
-					
-				</div>
+
+				<div className='right poster'></div>
 			</div>
 		);
 	}
 }
 
-export default Signup;
+function mapStateToProps(state) {
+	return {}
+}
+
+export default connect(mapStateToProps)(Signup);
