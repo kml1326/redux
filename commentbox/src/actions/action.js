@@ -1,7 +1,7 @@
-export const addTitle = (title) => {
+export const addTitle = (data) => {
 	return {
 		type: 'ADD_TITLE',
-		title	
+		data: data	
 	}
 }
 

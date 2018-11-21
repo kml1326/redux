@@ -1,12 +1,10 @@
-let initState = {}
+import { combineReducers } from 'redux';
+import addComments from './commentsReducer';
+import addTitle from './titleReducer';
 
-const reducer = (state = initState, action) => {
-	switch(action.type) {
-		case 'ADD_TITLE':
-			return state
-		case 'ADD_COMMENT':
-			return state
-		default:
-			return state;
-	}
-}
+const reducer = combineReducers({
+	addComments,
+	addTitle
+})
+
+export default reducer;
