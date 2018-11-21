@@ -1,9 +1,10 @@
-const initState = []
+const initState = {comments: []}
 
 const addComments = (state = initState, action) => {
 	switch(action.type) {
 		case 'ADD_COMMENT':
-			return ([...initState, {title: action.comment}])
+			return {...state, 
+				comments: [...state.comments, action.comment]}
 		default:
 		return state;
 	}

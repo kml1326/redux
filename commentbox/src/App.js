@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { addTitle } from './actions/action';
+import AddComments from './components/AddComments';
 
 class App extends Component {
 
@@ -18,16 +19,22 @@ class App extends Component {
 handleSubmit = (e) => {
   e.preventDefault();
   this.props.dispatch(addTitle(this.state.title))
-  console.log(this.props)
 }
 
   render() {
-    
+    const { reduxTitle } = this.props;
     return (
       <div className="App">
-        <form onSubmit={this.handleSubmit}>
-          <input id='title' placeholder='Enter Title' onChange={this.handleChange} />
-        </form>
+        {
+          (reduxTitle) 
+          ? <section>
+              <p>{ reduxTitle }</p> 
+              <AddComments />
+            </section>
+          : <form onSubmit={this.handleSubmit}>
+              <input id='title' placeholder='Enter Title' onChange={this.handleChange} />
+            </form>
+        }    
       </div>
     );
   }
@@ -35,7 +42,7 @@ handleSubmit = (e) => {
 
 function mapStateToProps(state) {
   return {
-    title : state.title
+    reduxTitle : state.title.title
   }
 }
 

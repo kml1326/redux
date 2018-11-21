@@ -3,8 +3,8 @@ import addComments from './commentsReducer';
 import addTitle from './titleReducer';
 
 const reducer = combineReducers({
-	addComments,
-	addTitle
+	comment: addComments,
+	title: addTitle
 })
 
 export default reducer;
