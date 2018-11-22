@@ -10,18 +10,23 @@ import ArticleEditor from './components/ArticleEditor';
 import Posts from './components/Posts';
 import { Provider } from 'react-redux';
 import store from './store';
+import Dashboard from './components/Dashboard';
+import Navbar from './components/Navbar';
 
 
 ReactDOM.render(
 	<Provider store={store}>
 		<Router>
-			<Switch>
-				<Route path='/' component={App} exact />
-				<Route path='/signup' component={Signup} />
-				<Route path='/login' component={Login} />
-				<Route path='/article' component={ArticleEditor} />
-				<Route path='/posts' component={Posts} />
-			</Switch>
+			<div>
+				<Navbar />
+				<Switch>
+					<Route path='/' component={Dashboard} exact />
+					<Route path='/signup' component={Signup} />
+					<Route path='/login' component={Login} />
+					<Route path='/article' component={ArticleEditor} />
+					<Route path='/posts' component={Posts} />
+				</Switch>
+			</div>
 		</Router>
 	</Provider>
     , document.getElementById('root'));

@@ -1,0 +1,33 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "articles",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string"
+    },
+    "title_description": {
+      "default": "",
+      "type": "text"
+    },
+    "body": {
+      "default": "",
+      "type": "text"
+    },
+    "claps": {
+      "default": "",
+      "type": "integer"
+    },
+    "post_date": {
+      "default": "",
+      "type": "date"
+    }
+  }
+}

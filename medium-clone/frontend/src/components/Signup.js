@@ -14,46 +14,38 @@ class Signup extends Component {
 	}
 	
 
-	handleClick = () => {
-		let data = this.state;
-		this.setState({
-			username : '',
-			email : '',
-			password : ''
-		})
-		fetch('http://localhost:1337/users', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'Accept': 'application/json'
-			},
-			body: JSON.stringify(data)	
-		}).then(res => res.json())
-		.then(data => {
-			if(data.username) {
-				alert('signup successful')
-				this.props.history.push('/login');				
-			} else {
+	handleClick = (e) => {
+
+		
+		// let data = this.state;
+		// this.setState({
+		// 	username : '',
+		// 	email : '',
+		// 	password : ''
+		// })
+		// fetch('http://localhost:1337/users', {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 		'Accept': 'application/json'
+		// 	},
+		// 	body: JSON.stringify(data)	
+		// }).then(res => res.json())
+		// .then(data => {
+		// 	if(data.username) {
+		// 		alert('signup successful')
+		// 		this.props.history.push('/login');				
+		// 	} else {
 				
-				alert('Already Exist email or userName');
-			}
-		})
+		// 		alert('Already Exist email or userName');
+		// 	}
+		// })
 	}
 
 	handleChange = (e) => {
-		switch(e.target.name) {
-			case 'email':
-				this.setState({email: e.target.value});
-				break;
-			case 'password' :
-				this.setState({password: e.target.value});
-				break;
-			case 'username' :
-				this.setState({username: e.target.value});
-				break;
-			default:
-				return ;
-		}
+		this.setState({
+			[e.target.id] : e.target.value
+		})
 	}
 
 	render() {
@@ -61,17 +53,17 @@ class Signup extends Component {
 			<div>
 				<div className="signup left">
 				<p className="header">Sign up</p>
-				<input type="email" name="email" 
+				<input type="email" id="email" 
 					placeholder="Email"
 					onChange={this.handleChange}
 					value={this.state.email}
 				/>
-				<input type="text" name="username" 
+				<input type="text" id="username" 
 					placeholder="Username"
 					onChange={this.handleChange}
 					value={this.state.username}
 				/>
-				<input type="password" name="password" 
+				<input type="password" id="password" 
 					placeholder="Password"
 					onChange={this.handleChange}
 					value={this.state.password}
