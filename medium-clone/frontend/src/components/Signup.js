@@ -1,45 +1,18 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { signUp } from '../actions/authAction';
 
 class Signup extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			username : '',
-			email : '',
-			password : ''
-		}
+	state = {
+		username : '',
+		email : '',
+		password : ''
 	}
 	
-
-	handleClick = (e) => {
-
-		
-		// let data = this.state;
-		// this.setState({
-		// 	username : '',
-		// 	email : '',
-		// 	password : ''
-		// })
-		// fetch('http://localhost:1337/users', {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 		'Accept': 'application/json'
-		// 	},
-		// 	body: JSON.stringify(data)	
-		// }).then(res => res.json())
-		// .then(data => {
-		// 	if(data.username) {
-		// 		alert('signup successful')
-		// 		this.props.history.push('/login');				
-		// 	} else {
-				
-		// 		alert('Already Exist email or userName');
-		// 	}
-		// })
+	handleClick = () => {
+		this.props.signup(this.state)
 	}
 
 	handleChange = (e) => {
@@ -78,8 +51,10 @@ class Signup extends Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {}
+function mapDispatchToProps(dispatch) {
+	return {
+		signup: (newUser) => dispatch(signUp(newUser))
+	}
 }
 
-export default connect(mapStateToProps)(Signup);
+export default connect(null, mapDispatchToProps)(Signup);

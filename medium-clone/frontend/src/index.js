@@ -6,7 +6,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import ArticleEditor from './components/ArticleEditor';
+import CreatePost from './components/CreatePost';
 import Posts from './components/Posts';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -23,7 +23,7 @@ ReactDOM.render(
 					<Route path='/' component={Dashboard} exact />
 					<Route path='/signup' component={Signup} />
 					<Route path='/login' component={Login} />
-					<Route path='/article' component={ArticleEditor} />
+					<Route path='/create' component={CreatePost} />
 					<Route path='/posts' component={Posts} />
 				</Switch>
 			</div>

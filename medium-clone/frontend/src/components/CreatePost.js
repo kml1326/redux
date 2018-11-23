@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import { createPost } from '../actions/postAction';
+import { connect } from 'react-redux';
 
-class ArticleEditor extends Component {
+class CreatePost extends Component {
 
-	constructor() {
-		super();
-		this.state = {
-			title: '',
-			title_description: '',
-			body: '',
-			claps: null,
-			post_date: new Date()
-		}
-	}
+  state = {
+    title: '',
+    title_description: '',
+    body: '',
+    claps: null,
+    post_date: new Date()
+  }
 
 handleChange = (e) => {
 	this.setState({
@@ -21,26 +20,8 @@ handleChange = (e) => {
 }
 
 handleClick = () => {
-	let data = this.state;
-	this.setState({
-		title: '',
-		title_description: '',
-		body: '',
-		claps: null,
-		post_date: null
-	})
-	fetch('http://localhost:1337/articles', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			'Accept': 'application/json'
-		},
-		body: JSON.stringify(data)
-	}).then(res => res.json())
-	.then(date => {
-		alert('Post Successfully')
-		this.props.history.push('/posts');
-	})
+  this.props.createPost(this.state);
+	// this.props.history.push('/posts');
 }
 
 	render() {
@@ -74,4 +55,10 @@ handleClick = () => {
 	}
 }
 
-export default ArticleEditor;
+function mapDispatchToProps(dispatch) {
+  return {
+		createPost: (newPost) => dispatch(createPost(newPost))
+	}
+}
+
+export default connect(null, mapDispatchToProps)(CreatePost);

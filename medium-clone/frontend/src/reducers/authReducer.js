@@ -2,8 +2,7 @@ const initState = {
   authError : null
 }
 
-
-const rootReducer = (state = initState, action) => {
+const authReducer = (state = initState, action) => {
   switch (action.type) {
     case 'SIGNUP_SUCCESS':
       console.log('signup success')
@@ -16,4 +15,4 @@ const rootReducer = (state = initState, action) => {
   }
 }
 
-export default rootReducer;
+export default authReducer;
